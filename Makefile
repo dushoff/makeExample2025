@@ -11,6 +11,16 @@ vim_session:
 
 ######################################################################
 
+## A rule is one or more dependency lines associated with one or more recipe lines
+
+fev.csv:
+	wget -O fev.csv "https://hbiostat.org/data/repo/FEV.csv"
+
+calculate.Rout: calculate.R
+	R --vanilla < calculate.R > calculate.Rout
+
+######################################################################
+
 ### Makestuff
 
 Sources += Makefile
